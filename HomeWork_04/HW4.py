@@ -8,7 +8,7 @@ def question():
         else:
              print("Круто, ", name, "! ,это", len(name), "букв , Вам", number*12,"Месяцев,Это", number*12%2, "число")
              break
-def question():
+question()
 
 
 
