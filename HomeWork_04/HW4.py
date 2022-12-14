@@ -1,10 +1,23 @@
+def question():
+    while True:
+        name = input("Назовите Ваше имя ")
+        try:
+            number = int(input("Сколько вам лет? "))
+        except: ValueError
+            print("Error! Это не число, попробуйте снова.")
+        else:
+             print("Круто, ", name, "! ,это", len(name), "букв , Вам", number*12,"Месяцев,Это", number*12%2, "число")
+             break
+def question():
 
-str_or_int = input("Enter a text ")
 
-if str_or_int == int:
-    print(int("This is int"))
-else:
-    print(str("This is str"))
+
+#str_or_int = input("Enter a text ")
+
+#if str_or_int == int:
+#    print(int("This is int"))
+#else:
+#    print(str("This is str"))
 
 
 
@@ -22,4 +35,3 @@ else:
 #print('Hello', name, "!")
 #age = int(input("How old are you?"))
 #print(age)
-
