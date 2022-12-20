@@ -1,31 +1,28 @@
 #I love Python*42#
 
 # Zadanie 1
-x = "I love Python"
-z = x*42
-print(z)
+print("I love Python "*42)
 
 #age_in_month#
 
 # Zadanie 2
-x = month = 12
-y = age_in_year = 37
-z = age_in_month = x*y
-print(z)
+month = 12
+age_in_year = 37
+age_in_month = age_in_year * month
+print(age_in_month)
 
 #Take age in "y" Zadanie 2#
 
 # Zadanie 3
-i = " age_in_years"
-j = i + " " + str(z//12)
-print (j)
+age_in_years = age_in_month//12
+print (age_in_years)
 
 #----------------------#
 # Zadanie 4
 first_name = "Oleksandr"
 last_name = "Pitelin"
 full_name = first_name +" "+ last_name
-result = "Му name is" +" "+ (full_name) + " I’m" + (j) + "years old"
+result = "Му name is" +" "+ full_name + " I’m " + str(age_in_years) + " years old"
 print(result)
 
 #----------------------#
@@ -49,8 +46,8 @@ print(a)
 
 #insert (int) to  (str)#
 # Zadanie 6
-a= 2
-b= 5
-c= 6
-d=str(a+b+c)
+a = 2
+b = 5
+c = 6
+d = str(a)+str(b)+str(c)
 print(d)
