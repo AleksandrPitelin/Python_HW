@@ -1,35 +1,29 @@
 #I love Python*42#
 
 # Zadanie 1
-x = ("I love Python")
-z = x*42
-print(z)
+print("I love Python "*42)
 
 #age_in_month#
 
 # Zadanie 2
-x = str("age_in_month")
-y = 37*12
-z = x+" "+str(y)
-print(z)
+month = 12
+age_in_year = 37
+age_in_month = age_in_year * month
+print(age_in_month)
 
 #Take age in "y" Zadanie 2#
 
 # Zadanie 3
-i = str(" age_in_years")
-j = str(i)+" " + str(y//12)
-print (j)
+age_in_years = age_in_month//12
+print (age_in_years)
 
 #----------------------#
 # Zadanie 4
 first_name = "Oleksandr"
 last_name = "Pitelin"
 full_name = first_name +" "+ last_name
-k = ("Му name is" +" "+ (full_name))
-l = ("I’m" + (j) + "years old")
-my_age =  k+" "+l
-
-print(my_age)
+result = "Му name is" +" "+ full_name + " I’m " + str(age_in_years) + " years old"
+print(result)
 
 #----------------------#
 # Zadanie 5
@@ -52,28 +46,8 @@ print(a)
 
 #insert (int) to  (str)#
 # Zadanie 6
-a=str(2)
-b=str(5)
-c=str(6)
-d=(a+b+c)
+a = 2
+b = 5
+c = 6
+d = str(a)+str(b)+str(c)
 print(d)
-
-
-
-
-#----------------------#
-#a = 56
-#Give_me_a_number_1_to_60 = int(input(40))
-#if a < 56:
-#    print ("min")
-#elif a > 56:
-#    print("max")
-#elif a == 56:
-#    print("BINGO!!!")
-
-#--------------------------------#
-#my_age = z
-#year_of_born = x
-#this_year = y
-#year_on_week = (365/7)*z
-#z = y - x
