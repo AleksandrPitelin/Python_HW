@@ -26,6 +26,5 @@ import time
 
 while True:
     text = "I love Python"
-    for word in text:
-        time.sleep(4.2)
+    time.sleep(4.2)
     print(text)
