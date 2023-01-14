@@ -1,66 +1,40 @@
-phonebook = {"Ivan":"+38056465453","Fedor": "+36535434543","Alex": "+38035431133","Petro Petrovich": "+380679874561","San Sanich": "+380504569874","Dart Weyderovich": "+666666666666","Alesha Popovich": "+345864644847"}
-print(phonebook.items())
-print(phonebook.values())
-print(phonebook.keys())
 
-#show phonebook
-stats = phonebook
-print(len(phonebook))
+phonebook = {
+        "Aleks": "347638756",
+        "Fedor": "3784638754",
+        "Den": "2387463745"
 
-#list letter
-for lst in phonebook.keys():
-    print(list(lst.split()))
-#add contact
-phonebook["Evgen"] = "+54681444035"
-print(phonebook)
-
-#del contact
-del phonebook["Ivan"]
-print(phonebook)
-
-#show phonebook
-for show in phonebook.items():
-    print(show)
-
-# contact = input("Enter a contact ")
-#
-# if phonebook(contact) is None:
-#     phonebook["contact"] = "+380"
-# print(phonebook.get[contact])
+    }
 
 
-# while True:
-#
-#     if:
-#         name = input("Enter a name ")
-#         print(name.split(" "))
-#         phone = input("Enter a phone ")
-#         print(phone.split("+380"))
-#         phonebook[name] = phone
-#         print(phonebook)
-#     else:
-#         print("name in phonebook")
+if input("If you wont add - Enter 'add'") == "add":
 
+    n = input("Enter a name: ")
+    p = int(input("Enter a phone: "))
 
-
-
-
-
-# while True:
-#     user_input = input("Enter new contact: ")
-#     split_input = user_input.split()
-#
-#
-#     comand = split_input[0]
-#     numbers = int(split_input[1])
-#     names = split_input[2]
-#
-#     if user_input.get(phonebook) is None:
-#         phonebook[numbers] = 0
-#
-#     if comand == 'add':
-#         phonebook += names
-#     elif comand == 'remove':
-#         phonebook -= names
-#     elif comand == "get":
-#         print(phonebook.get(names))
+    if n != phonebook:
+        phonebook[n] = p
+        print("Contact add to phonebook!")
+    else:
+        for n,p in phonebook is True:
+            print("Contact in phonebook!")
+    print(len(phonebook))
+    print(phonebook)
+elif input("If you wont del - Enter 'delete'") == "delete":
+    n = input("Enter a name: ")
+    if phonebook.get(n):
+        del phonebook[n]
+        print(phonebook)
+        print(f"{n} is delete")
+elif input("If you wont see a list - Enter a 'list' ") == "list":
+    for key in phonebook:
+        print(key)
+elif input("If you wont see a stats - Enter a 'stats' ") == "stats":
+        L = phonebook
+        print(len(L))
+elif input("If you wont see a show - Enter a 'show' ") == "show":
+    s = input("Enter a name: ")
+    if phonebook.get(s):
+        print(phonebook[s])
+else:
+        print("Unknown command!")
