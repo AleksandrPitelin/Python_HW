@@ -1,4 +1,3 @@
-
 text = int(input("Enter a digit: "))
 def my_generator():
     f1, f2 = 0, 1
