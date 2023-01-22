@@ -1,13 +1,13 @@
 text = int(input("Enter a digit: "))
-def my_generator():
+def my_generator(some_text):
     f1, f2 = 0, 1
-    for fib in range(text):
+    for fib in range(some_text):
         yield fib
         f1, f2 = f2, f1 + f2
 
-gen = my_generator()
+gen = my_generator(text)
 n=0
 for value in gen:
-    if n== int(text):
+    if n <= int(text):
         print(value)
         break
