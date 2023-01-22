@@ -8,6 +8,6 @@ def my_generator(some_text):
 gen = my_generator(text)
 n=0
 for value in gen:
-    if n <= int(text):
+    if n == text:
         print(value)
-        break
+n += 1
