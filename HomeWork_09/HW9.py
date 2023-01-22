@@ -10,4 +10,4 @@ n=0
 for value in gen:
     if n == text:
         print(value)
-n += 1
+    n += 1
