@@ -3,13 +3,13 @@ from time import perf_counter
 
 
 
-def decorator(func):
-    def timer():
-        start = perf_counter()
-        def inner():
-            return perf_counter() - start
-        return inner
-
+# def decorator(func):
+#     def timer(*args,**kwargs):
+#         start = datetime()
+#         def inner():
+#             return datetime() - start
+#         return inner()
+#     return timer
 def counter(func):
     count = 0
     def inner(*args,**kwargs):
@@ -17,26 +17,29 @@ def counter(func):
         count +=1
         print(f"Функція {func.__name__} викликалась {count} разів")
         return func(*args,**kwargs)
+    return inner
 
 
 @counter
-@decorator
 def add(a, b):
-    a = int(input("first digit "))
-    b = int(input("twice digit "))
     return a + b
-
+add(8,7)
+add(5,7)
+add(4,6)
 
 
 
 # #-----------------------------------------
-def MyCustomException(Exception):
+class MyCustomException(ZeroDivisionError):
     pass
 try:
-    a,b/0
-except:
-    MyCustomException
-    print("Custom exception is occured")
+    a = 5/0
+    raise MyCustomException("Custom exception is occurred")
+except: print("Деление на ноль")
+
+
+
+
 
 #==========================
 class FileManager():
@@ -56,19 +59,14 @@ with FileManager("context.txt","w") as file:
 
 #-----------------------------
 
-while True:
-    b = "HelloWorld!"
-    a = input("Enter value: ")
-    try:
-        a=a*10
-        res = a + b + a
-        print(res)
+#
+class MyContext:
 
-    except (TypeError):
-        print("Custom exception is occured")
-    except (KeyboardInterrupt):
-        print("KeyboardInterrupt")
-    else:
-        pass
-    finally:
-        pass
+    def __enter__(self):
+        print('==========')
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        if exc_val:
+            print(exc_val)
+        print('==========')
+        return True
