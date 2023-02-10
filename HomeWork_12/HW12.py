@@ -14,7 +14,7 @@ def funcname(func):
 
 
 try:
-    with open("/Users/AleksandrPitelin/PythonProject/PythonProject/HomeWork_12/Json_hw12", 'r') as file:
+    with open("Json_hw12", 'r') as file:
         data = file.read()
         phonebook = json.loads(data)
 except FileNotFoundError:
