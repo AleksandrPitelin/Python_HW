@@ -13,34 +13,21 @@ def funcname(func):
 
 
 
-
-
-# phonebook ={
-#         "Aleks": "347638756",
-#         "Fedor": "3784638754",
-#         "Den": "2387463745"
-#
-#      }
-# json_phonebook = json.dumps(phonebook)
-
 try:
     with open("/Users/AleksandrPitelin/PythonProject/PythonProject/HomeWork_12/Json_hw12", 'r') as file:
         data = file.read()
         phonebook = json.loads(data)
 except FileNotFoundError:
     phonebook = {}
-
+json_phonebook = json.dumps(phonebook)
 
 while True:
-    # @timer(command)
-    # @funcname(command)
     command = input('Enter a command: ')
     if command == 'list':
         for key in phonebook:
             print(key)
     elif command == 'stats':
-        L = phonebook
-        print(len(L))
+        print(len(phonebook))
     elif command == 'show':
         s = input("Enter a name: ")
         if phonebook.get(s):
@@ -49,19 +36,19 @@ while True:
         n = input("Enter a name: ")
         p = int(input("Enter a phone: "))
 
-        # if n != phonebook:
-        #     phonebook[n] = p
         if n not in phonebook:
             phonebook[n] = p
-            with open("/Users/AleksandrPitelin/PythonProject/PythonProject/HomeWork_12/Json_hw12", 'w+') as file_json:
+            with open('Json_hw12', 'w+') as file_json:
                 content = json.dumps(phonebook)
                 file_json.write(content)
-            print("Contact add to phonebook!")
+
+                print(phonebook)
         else:
-            for n, p in phonebook is True:
-                print("Contact in phonebook!")
-        print(len(phonebook))
-        print(phonebook)
+            print("Unknown command!")
+    elif command == 'delete':
+        n = input("Enter a name: ")
+        if phonebook.get(n):
+            del phonebook[n]
     elif command == 'delete':
         n = input("Enter a name: ")
         if phonebook.get(n):
