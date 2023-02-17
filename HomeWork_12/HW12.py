@@ -10,16 +10,16 @@ def funcname(func):
     def inner(*args,**kwargs):
         print(f"Функція {func.__name__}")
         return func(*args,**kwargs)
-
+    return inner()
 
 
 try:
-    with open("Json_hw12", 'r') as file:
+    with open('/HomeWork_12/Json_hw12', 'r') as file:
         data = file.read()
         phonebook = json.loads(data)
 except FileNotFoundError:
     phonebook = {}
-json_phonebook = json.dumps(phonebook)
+
 
 while True:
     command = input('Enter a command: ')
@@ -38,21 +38,20 @@ while True:
 
         if n not in phonebook:
             phonebook[n] = p
-            with open('Json_hw12', 'w+') as file_json:
-                content = json.dumps(phonebook)
-                file_json.write(content)
+            with open("/Users/AleksandrPitelin/PythonProject/PythonProject/HomeWork_12/Json_hw12", 'w+') as file_json:
+                json_phonebook = json.dumps(phonebook)
+                file_json.write(json_phonebook)
 
-                print(phonebook)
         else:
             print("Unknown command!")
+
     elif command == 'delete':
         n = input("Enter a name: ")
         if phonebook.get(n):
             del phonebook[n]
-    elif command == 'delete':
-        n = input("Enter a name: ")
-        if phonebook.get(n):
-            del phonebook[n]
+            with open("/Users/AleksandrPitelin/PythonProject/PythonProject/HomeWork_12/Json_hw12", 'w+') as file_json:
+                json_phonebook = json.dumps(phonebook)
+                file_json.write(json_phonebook)
             print(phonebook)
             print(f"{n} is delete")
     else:
