@@ -12,14 +12,6 @@ c.execute(""" CREATE TABLE IF NOT EXISTS users (
 )
 """)
 
-# c.execute("INSERT INTO users VALUES ")
-
-# c.execute("SELECT age FROM users WHERE age<30")
-# print(c.fetchall())
-# c.execute("SELECT id,age FROM users WHERE age>30, id")
-# c.execute("SELECT id,age FROM users WHERE age>30, id")
-
-
 
 db.commit()
 db.close()
