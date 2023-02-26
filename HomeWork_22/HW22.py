@@ -2,7 +2,7 @@ import sqlite3
 db = sqlite3.connect("/Users/AleksandrPitelin/Downloads/book_store.sqlite")
 c = db.cursor()
 print(db)
-c.fetchall()
+
 c.execute("""CREATE TABLE IF NOT EXISTS users(
           id INTEGER PRIMARY KEY,
           first_name TEXT,
@@ -26,7 +26,7 @@ c.execute("""CREATE TABLE IF NOT EXISTS books(
           FOREIGN KEY (publishing_house_id) references publishing_house(id)
  )
  """),
-c.execute("""CREATE TABLE IF NOT EXISTS purchases(
+c.execute("""CREATE TABLE IF NOT EXISTS purchase(
           id INTEGER,
           user_id INTEGER,
           book_id INTEGER,
@@ -36,12 +36,20 @@ c.execute("""CREATE TABLE IF NOT EXISTS purchases(
  )
  """)
 
-c.execute("SELECT purchases.id, purchases.date, users.first_name, users.last_name FROM purchases INNER JOIN users ON purchases.user_id = users.id")
-c.fetchall()
-c.execute("SELECT users.id, users.first_name, users.last_name, books.title FROM users INNER JOIN purchases ON users.id = purchases.user_id INNER JOIN books ON purchases.book_id = books.id ORDER BY users.id")
-c.fetchall()
-c.execute("SELECT users.id, users.first_name, users.last_name, SUM(books.price) as total_purchases FROM users INNER JOIN purchases ON users.id = purchases.user_id INNER JOIN books ON purchases.book_id = books.id GROUP BY users.id")
-c.fetchall()
+
+c.execute("SELECT purchase.id, purchase.date, users.first_name, users.last_name FROM purchase INNER JOIN users ON purchase.user_id = users.id")
+res = c.fetchall()
+for item in res:
+    print(item)
+
+c.execute("SELECT users.id, users.first_name, users.last_name, books.title FROM users INNER JOIN purchase ON users.id = purchase.user_id INNER JOIN books ON purchase.book_id = books.id ORDER BY users.id")
+res = c.fetchall()
+for item in res:
+    print(item)
+c.execute("SELECT users.id, users.first_name, users.last_name, SUM(books.price) as total_purchase FROM users INNER JOIN purchase ON users.id = purchase.user_id INNER JOIN books ON purchase.book_id = books.id GROUP BY users.id")
+res = c.fetchall()
+for item in res:
+    print(item)
 
 
 
