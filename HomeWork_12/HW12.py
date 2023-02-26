@@ -1,17 +1,24 @@
 import json
 from datetime import datetime
-def timer():
-    start = datetime()
-    def inner():
-        return datetime() - start
-    return inner
+import time
+def decotime(func):
+    def wrapper():
+        start_time = time.time()
+        func()
+        end_time = time.time()
+        print("Время выполнения: ", end_time - start_time)
+    return wrapper
 
 def funcname(func):
     def inner(*args,**kwargs):
         print(f"Функція {func.__name__}")
         return func(*args,**kwargs)
-    return inner()
+    return inner
 
+
+# @decotime
+# @funcname
+# def book():
 
 try:
     with open('/HomeWork_12/Json_hw12', 'r') as file:
