@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 try:
-    with open('/Users/AleksandrPitelin/PythonProject/PythonProject/HomeWork_14/Json_hw14', 'r') as file:
+    with open('/Json_hw14', 'r') as file:
         data = file.read()
         phonebook = json.loads(data)
 except FileNotFoundError:
@@ -24,26 +24,24 @@ while True:
     elif command == 'add':
         n = input("Enter a name: ")
         p = int(input("Enter a phone: "))
-        tel = re.search(r"(\+?3?8?0)(\d+)", p)
-        if p in tel:
-            print("Ok")
+        tel = re.search(r"^(\\+380|380|0)[0-9]{9}$", p)
+        if tel is not None:
+            if n not in phonebook:
+                phonebook[n] = p
+                with open("/Json_hw14", 'w+') as file_json:
+                    json_phonebook = json.dumps(phonebook)
+                    file_json.write(json_phonebook)
+                    print('Phone number added successfully')
+            else:
+                print('Name already exists')
         else:
-            print("Enter valid number")
-
-        if n not in phonebook:
-            phonebook[n] = p
-            with open("/Users/AleksandrPitelin/PythonProject/PythonProject/HomeWork_14/Json_hw14", 'w+') as file_json:
-                json_phonebook = json.dumps(phonebook)
-                file_json.write(json_phonebook)
-
-        else:
-            print("Unknown command!")
+            print('Invalid phone number')
 
     elif command == 'delete':
         n = input("Enter a name: ")
         if phonebook.get(n):
             del phonebook[n]
-            with open("/Users/AleksandrPitelin/PythonProject/PythonProject/HomeWork_14/Json_hw14", 'w+') as file_json:
+            with open("/Json_hw14", 'w+') as file_json:
                 json_phonebook = json.dumps(phonebook)
                 file_json.write(json_phonebook)
             print(phonebook)
