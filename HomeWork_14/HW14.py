@@ -4,7 +4,7 @@ from datetime import datetime
 
 
 try:
-    with open('/Json_hw14', 'r') as file:
+    with open('Json_hw14', 'r') as file:
         data = file.read()
         phonebook = json.loads(data)
 except FileNotFoundError:
@@ -24,11 +24,11 @@ while True:
     elif command == 'add':
         n = input("Enter a name: ")
         p = int(input("Enter a phone: "))
-        tel = re.search(r"^(\\+380|380|0)[0-9]{9}$", p)
+        tel = re.search(r"^(\+380|380|0)[0-9]{9}$", p)
         if tel is not None:
             if n not in phonebook:
                 phonebook[n] = p
-                with open("/Json_hw14", 'w+') as file_json:
+                with open("Json_hw14", 'w+') as file_json:
                     json_phonebook = json.dumps(phonebook)
                     file_json.write(json_phonebook)
                     print('Phone number added successfully')
@@ -41,7 +41,7 @@ while True:
         n = input("Enter a name: ")
         if phonebook.get(n):
             del phonebook[n]
-            with open("/Json_hw14", 'w+') as file_json:
+            with open("Json_hw14", 'w+') as file_json:
                 json_phonebook = json.dumps(phonebook)
                 file_json.write(json_phonebook)
             print(phonebook)
