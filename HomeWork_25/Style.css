@@ -25,6 +25,7 @@ td,th {
     font-style: italic;
     margin: 10px;
     background: burlywood;
+    border: 1px;
 }
 .block{
     background: cadetblue;
