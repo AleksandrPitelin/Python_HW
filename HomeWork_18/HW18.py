@@ -1,3 +1,6 @@
+import self as self
+
+
 class Bot:
     def __init__(self, name, message):
         self.name = name
@@ -15,7 +18,10 @@ m.send_message()
 
 
 class TelegramBot(Bot):
-    def __init__(self,url,chat_id):
+    u = "https://www.gismeteo.ua/weather-dnipro-5077/"
+    c = "id_number 535366"
+    def __init__(self,name,message,url=u,chat_id=c):
+        super().__init__(name,message)
         self.url = url
         self.chat_id = chat_id
 
@@ -24,12 +30,13 @@ class TelegramBot(Bot):
     def set_chat_id(self):
         print(f"My ID is: {self.chat_id}")
     def send_message(self):
-        print(f"{self.message},{self.name} and i have {self.url} with {self.chat_id} ")
+        print(f"{self.name},{self.message}, i have {self.url} with {self.chat_id}")
 
 
 
-url = TelegramBot("https://www.gismeteo.ua/weather-dnipro-5077/","weazer")
-chat = TelegramBot("id_number bla-bla-bla","535366")
-
-url.set_url()
-chat.set_chat_id()
+u = TelegramBot("https://www.gismeteo.ua/weather-dnipro-5077/","weazer")
+c = TelegramBot("id_number bla-bla-bla","535366")
+tb=TelegramBot("Aleksandr", "How are you?")
+tb.send_message()
+u.set_url()
+c.set_chat_id()
