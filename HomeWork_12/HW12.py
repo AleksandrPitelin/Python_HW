@@ -18,7 +18,7 @@ def funcname(func):
 
 
 try:
-    with open('/HomeWork_12/Json_hw12', 'r') as file:
+    with open("Json_hw12", 'r') as file:
         data = file.read()
         phonebook = json.loads(data)
 except FileNotFoundError:
@@ -45,7 +45,7 @@ def book():
 
             if n not in phonebook:
                 phonebook[n] = p
-                with open("/Users/AleksandrPitelin/PythonProject/PythonProject/HomeWork_12/Json_hw12", "w+") as file_json:
+                with open("Json_hw12", "w+") as file_json:
                     json_phonebook = json.dumps(phonebook)
                     file_json.write(json_phonebook)
 
@@ -56,7 +56,7 @@ def book():
             n = input("Enter a name: ")
             if phonebook.get(n):
                 del phonebook[n]
-                with open("/Users/AleksandrPitelin/PythonProject/PythonProject/HomeWork_12/Json_hw12", "w+") as file_json:
+                with open("Json_hw12", "w+") as file_json:
                     json_phonebook = json.dumps(phonebook)
                     file_json.write(json_phonebook)
                 print(phonebook)
