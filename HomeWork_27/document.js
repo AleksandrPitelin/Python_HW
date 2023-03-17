@@ -35,21 +35,20 @@ const btn2 = document.getElementsByTagName('button')[1];
 const btn_sum = document.getElementsByTagName('button2')[0];
 
 
+btn_sum.onclick = (event) =>{
+    event.target.innerText = `Кiлькiсть друзiв ${Math.floor(Math.random() * 101)}`;
+};
+
+
+
 
 btn.onclick = (event) =>{
     event.target.innerText = `Додати в друзі ${1+i}`;
     btn.addEventListener('click', function () {
-        // btn_sum+ btn, this.disabled=true;
+    this.disabled=true;
 
     });
 }
-
-
-
-btn_sum.onclick = (event) =>{
-    event.target.innerText = `Кiлькiсть друзiв ${Math.random(1,100)*100}`;
-};
-
 
 
 
