@@ -4,15 +4,15 @@ import self as self
 class Bot:
     def __init__(self, name):
         self.name = name
-    def send_message(self):
-        print(f"{self.name} say Hello!")
+    def send_message(self,message):
+        print(message)
 
     def say_name(self):
         print(f"My name is {self.name}")
 
 b=Bot("Aleks")
 b.say_name()
-b.send_message()
+b.send_message("Hello")
 
 
 class TelegramBot(Bot):
