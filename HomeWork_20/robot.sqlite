@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS users2 (
+     id INTEGER PRIMARY KEY AUTOINCREMENT,
+     first_name TEXT NOT NULL,
+     last_name TEXT,
+     age INTEGER DEFAULT 30
+)
+
+INSERT INTO users2(first_name,last_name,age)VALUES ('Oleksandr','Pitelin',37)
+INSERT INTO users2(first_name,last_name)VALUES ('Oleksandr','Pitelin')
+INSERT INTO users2(id,first_name,last_name,age)VALUES (5,'Oleksandr','Pitelin',37)
+INSERT INTO users2(first_name,last_name,age)VALUES ('Ilon','Mask',49)
+INSERT INTO users2(first_name,age)VALUES ('Oleksandr',37)
