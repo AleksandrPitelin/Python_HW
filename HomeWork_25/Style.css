@@ -1,0 +1,32 @@
+header {
+    width: 100%;
+    height: 70px;
+    background: beige;
+    text-align: center;
+}
+
+footer {
+    width: 100%;
+    height: 50px;
+    background: cadetblue;
+}
+
+.Table {
+    border: 1px chocolate;
+    width: 100%;
+    background: beige;
+}
+
+td,th {
+    border: 1px chocolate;
+    text-align: center;
+}
+.say {
+    font-style: italic;
+    margin: 10px;
+    background: burlywood;
+    border: 1px;
+}
+.block{
+    background: cadetblue;
+}
