@@ -20,11 +20,10 @@ from geopy.geocoders import Nominatim
 geolocator = Nominatim(user_agent="Tester")
 adress = str(input('Введите адрес: \n'))
 location = geolocator.geocode(adress)
-print(location)
 lat = location.latitude
 lon = location.longitude
 
-response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={'9adde29e77fb66f332276056c1a28332'}&units=metric")
+response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API_key}&units=metric")
 pprint(response.content)
 
 data = response.json()
